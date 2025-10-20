@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide officiel URSSAF - Mon Statut Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #06B6D4;
+            --accent: #F59E0B;
+        }
+        
+        .text-primary { color: var(--primary); }
+        .bg-primary { background-color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .bg-primary\/10 { background-color: rgba(79, 70, 229, 0.1); }
+        .bg-secondary\/10 { background-color: rgba(6, 182, 212, 0.1); }
+        
+        #vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Mon Statut Pro</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Accueil</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-primary transition-colors">Services</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div id="vanta-bg"></div>
+        <div class="hero-content container mx-auto px-6 text-center">
+            <div class="animate__animated animate__fadeInUp">
+                <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i data-feather="file-text" class="text-primary w-12 h-12"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Guide officiel <span class="gradient-text">URSSAF</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Accédez à toutes les ressources officielles URSSAF pour les auto-entrepreneurs
+                </p>
+                <a href="#guides" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-secondary transition-all duration-300 hover-lift">
+                    <i data-feather="download" class="w-5 h-5 mr-3"></i>
+                    Consulter les guides
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section id="guides" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Documentation officielle URSSAF</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tous les guides et documents essentiels pour bien comprendre et gérer votre statut d'auto-entrepreneur.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Guide 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="presentation" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Diaporama Auto-entrepreneur</h3>
+                    <p class="text-gray-600 mb-6">Présentation complète du statut d'auto-entrepreneur avec toutes les informations essentielles.</p>
+                    <a href="https://www.urssaf.fr/files/live/sites/urssaffr/files/autres/Diaporama_Auto-entrepreneur.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="map" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Auto-entrepreneur DROM</h3>
+                    <p class="text-gray-600 mb-6">Guide spécifique pour les auto-entrepreneurs dans les Départements et Régions d'Outre-Mer.</p>
+                    <a href="https://www.urssaf.fr/files/live/sites/urssaffr/files/autres/Diaporama_Auto-entrepreneur-DROM.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-primary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="book-open" class="text-accent w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">URSSAF et Vous - Guide AE</h3>
+                    <p class="text-gray-600 mb-6">Guide complet "URSSAF et Vous" spécialement conçu pour les auto-entrepreneurs.</p>
+                    <a href="https://www.autoentrepreneur.urssaf.fr/portail/files/Guides/6661-Urssaf_et_Vous_AE_VF.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-primary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="life-buoy" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Aide d'urgence CPSTI</h3>
+                    <p class="text-gray-600 mb-6">Guide sur l'aide d'urgence URSSAF pour les travailleurs indépendants en difficulté.</p>
+                    <a href="https://www.autoentrepreneur.urssaf.fr/portail/files/Guides/Urssaf-Aide-d%e2%80%99urgence-CPSTI%20.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="monitor" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Services en ligne</h3>
+                    <p class="text-gray-600 mb-6">Présentation des services en ligne URSSAF disponibles pour les auto-entrepreneurs.</p>
+                    <a href="https://www.urssaf.fr/files/live/sites/urssaffr/files/autres/Diaporama_Auto-entrepreneur-Services-en-ligne.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-primary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Retour à l'accueil -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift flex flex-col justify-center items-center text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="home" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Retour à l'accueil</h3>
+                    <p class="text-gray-600 mb-6">Découvrez tous nos services d'accompagnement pour auto-entrepreneurs.</p>
+                    <a href="index.html" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+                        Retour à l'accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold gradient-text mb-4">Mon Statut Pro</div>
+                <p class="text-gray-400 mb-6">Votre partenaire pour réussir en tant qu'auto-entrepreneur</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Accueil</a>
+                    <a href="index.html#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2024 Mon Statut Pro. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialiser les icônes Feather
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Initialiser Vanta.js
+            if (typeof VANTA !== 'undefined') {
+                VANTA.GLOBE({
+                    el: "#vanta-bg",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x4f46e5,
+                    color2: 0x06b6d4,
+                    backgroundColor: 0x1a1a2e
+                });
+            }
+        });
+
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

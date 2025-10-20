@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Statut Pro - Conseil en Création et Gestion d'Entreprise</title>
+    <meta name="description" content="Expert en création et gestion d'entreprise. Accompagnement personnalisé pour lancer votre projet et optimiser votre gestion. Contactez-nous pour un conseil stratégique.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#F59E0B'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /* Menu hamburger animation */
+        .hamburger-icon {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-open {
+            animation: fadeIn 0.3s ease forwards;
+            transform-origin: top;
+        }
+        .mobile-menu-closed {
+            animation: fadeOut 0.3s ease forwards;
+            transform-origin: top;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-10px); }
+        }
+        /* Active link indicator */
+        .nav-link-active {
+            color: #3B82F6;
+            font-weight: 600;
+        }
+        /* Mobile menu improvements */
+        .mobile-nav-link {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            transition: all 0.2s ease;
+            width: 100%;
+            text-align: center;
+        }
+        .mobile-nav-link:last-child {
+            border-bottom: none;
+        }
+        .mobile-nav-link:hover {
+            padding-left: 0.5rem;
+        }
+        /* Ensure all mobile menu items are aligned properly */
+        .nav-links.flex-col a {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 0;
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                        <i data-feather="trending-up" class="text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Mon Statut Pro</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 nav-links">
+                    <a href="#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Accueil</a>
+                    <a href="#apropos" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">À propos</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Services</a>
+                    <a href="#avis" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Avis</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Contact</a>
+                </div>
+
+                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-secondary transition-colors hidden md:block">
+                    Contactez-moi
+                </a>
+
+                <button class="md:hidden text-gray-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md p-1" aria-label="Menu de navigation" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+                    <div class="hamburger-icon">
+                        <i data-feather="menu" id="menu-icon"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div id="vanta-bg" class="vanta-bg"></div>
+        <div class="container mx-auto px-6 text-center z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                Créez et gérez votre entreprise avec un <span class="gradient-text">expert</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Accompagnement personnalisé pour lancer votre projet et optimiser votre gestion
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services" class="bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary transition-colors hover-lift">
+                    Découvrez mes services
+                </a>
+                <a href="#contact" class="border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary hover:text-white transition-colors hover-lift">
+                    Contactez-moi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos Section -->
+    <section id="apropos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Qui suis-je ?</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Mon Statut Pro, dirigé par un expert passionné, accompagne les entrepreneurs dans la création et la gestion de leur entreprise. Avec une expertise solide en business plan, formalités juridiques, et conseil stratégique, je vous aide à transformer vos idées innovantes en succès durable.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Mon approche unique repose sur trois piliers : proximité avec mes clients, pragmatisme dans les solutions proposées, et développement de stratégies sur mesure adaptées à chaque projet entrepreneurial.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-white hover-lift">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i data-feather="award" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Expertise Confirmée</h3>
+                        <p class="text-white/90">Plus de 100 entreprises accompagnées avec succès depuis 2018</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Mes services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                    <i data-feather="briefcase" class="text-primary w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Création d'entreprise</h3>
+                <p class="text-gray-600 mb-4">Aide au business plan, choix du statut juridique optimal, et accompagnement dans toutes les démarches administratives.</p>
+                <a href="#contact" class="text-primary font-semibold hover:text-secondary transition-colors inline-flex items-center">
+                    En savoir plus <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                    <i data-feather="bar-chart-2" class="text-primary w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Gestion d'entreprise</h3>
+                <p class="text-gray-600 mb-4">Optimisation financière complète, gestion administrative simplifiée, et stratégie de croissance personnalisée.</p>
+                <a href="#contact" class="text-primary font-semibold hover:text-secondary transition-colors inline-flex items-center">
+                    En savoir plus <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                    <i data-feather="compass" class="text-primary w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Suivi et conseil</h3>
+                <p class="text-gray-600 mb-4">Coaching entrepreneurial personnalisé, audits réguliers, et accompagnement stratégique continu.</p>
+                <a href="#contact" class="text-primary font-semibold hover:text-secondary transition-colors inline-flex items-center">
+                    En savoir plus <i data-feather="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide URSSAF Section -->
+    <section id="guide-urssaf" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Guide officiel URSSAF</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Accédez aux ressources officielles URSSAF pour les auto-entrepreneurs. Tous les guides et documents essentiels pour bien gérer votre statut.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8 md:p-12 text-center">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                        <i data-feather="file-text" class="text-primary w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Documentation officielle URSSAF</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Consultez tous les guides officiels, diaporamas et documents URSSAF spécialement conçus pour les auto-entrepreneurs.</p>
+                    <a href="guide-urssaf.html" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-secondary transition-all duration-300 hover-lift">
+                        <i data-feather="external-link" class="w-5 h-5 mr-3"></i>
+                        Accéder aux guides URSSAF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avis Section -->
+    <section id="avis" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Ce que disent mes clients</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Avis 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="flex text-accent mb-4">
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">"Un accompagnement clair et efficace pour lancer ma startup en seulement 3 mois ! L'expertise et le soutien ont été déterminants pour mon succès."</p>
+                    <p class="font-semibold text-gray-800">Yasmine D., entrepreneur</p>
+                </div>
+
+                <!-- Avis 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="flex text-accent mb-4">
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">"Conseils extrêmement pratiques pour optimiser ma gestion financière. Une vraie valeur ajoutée pour mon entreprise !"</p>
+                    <p class="font-semibold text-gray-800">Mohammed B., gérante</p>
+                </div>
+
+                <!-- Avis 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="flex text-accent mb-4">
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">"Mon business plan a été un véritable succès grâce à Mon Statut Pro. L'accompagnement personnalisé a fait toute la différence."</p>
+                    <p class="font-semibold text-gray-800">YACINE S., porteur de projet</p>
+                </div>
+            </div>
+
+            <!-- Formulaire Avis -->
+            <div class="mt-16 max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Laissez votre avis</h3>
+                <form name="avis" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" class="space-y-6">
+                    <input type="hidden" name="form-name" value="avis" />
+                    <p class="hidden">
+                        <label>Ne pas remplir si vous êtes humain: <input name="bot-field" /></label>
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Votre avis</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors">
+                            Envoyer mon avis
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Prenons contact</h2>
+                <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Formulaire Contact -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" class="space-y-6">
+                        <input type="hidden" name="form-name" value="contact" />
+                        <p class="hidden">
+                            <label>Ne pas remplir si vous êtes humain: <input name="bot-field" /></label>
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+                                <input type="text" id="contact-name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Numéro de téléphone</label>
+                            <input type="tel" id="contact-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ex: 07 XX XX XX XX">
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="contact-message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Décrivez votre projet ou votre besoin..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                            Envoyer le message
+                        </button>
+                        </form>
+                    </div>
+
+                    <!-- Coordonnées -->
+                    <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-white shadow-xl hover-lift overflow-hidden relative">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 z-0"></div>
+                        <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/5 rounded-full -ml-20 -mb-20 z-0"></div>
+                        
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-8 border-b border-white/20 pb-4">Mes coordonnées</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-white/10 p-4 rounded-xl flex items-start space-x-4 transform transition-all duration-300 hover:bg-white/20 hover:translate-x-1">
+                                    <div class="bg-white/20 p-2 rounded-full">
+                                        <i data-feather="map-pin" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg mb-1">Adresse</h4>
+                                        <p class="text-white/80">78 Avenue des Champs-Élysées, Paris, France</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white/10 p-4 rounded-xl flex items-start space-x-4 transform transition-all duration-300 hover:bg-white/20 hover:translate-x-1">
+                                    <div class="bg-white/20 p-2 rounded-full">
+                                        <i data-feather="phone" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg mb-1">Téléphone</h4>
+                                        <p class="text-white/80">07 50 01 17 56</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white/10 p-4 rounded-xl flex items-start space-x-4 transform transition-all duration-300 hover:bg-white/20 hover:translate-x-1">
+                                    <div class="bg-white/20 p-2 rounded-full">
+                                        <i data-feather="mail" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg mb-1">Email</h4>
+                                        <p class="text-white/80">mon.statut.pro@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white/10 p-4 rounded-xl flex items-start space-x-4 transform transition-all duration-300 hover:bg-white/20 hover:translate-x-1">
+                                    <div class="bg-white/20 p-2 rounded-full">
+                                        <i data-feather="share-2" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg mb-1">Réseaux sociaux</h4>
+                                        <a href="https://www.tiktok.com/@mon.statut.pro" class="text-white/80 hover:text-white hover:underline flex items-center">
+                                            <i data-feather="video" class="w-4 h-4 mr-2"></i> TikTok
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 pt-4 border-t border-white/20">
+                                <p class="text-white/80 text-sm">N'hésitez pas à me contacter pour toute question ou pour prendre rendez-vous.</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-gray-800 text-white py-12">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="flex items-center space-x-2 mb-4">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <i data-feather="trending-up" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-xl font-bold">Mon Statut Pro</span>
+                    </div>
+                    <p class="text-gray-400">Expert en création et gestion d'entreprise depuis 2018</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Navigation</h4>
+                    <div class="space-y-2">
+                        <a href="#accueil" class="block text-gray-400 hover:text-white transition-colors">Accueil</a>
+                        <a href="#apropos" class="block text-gray-400 hover:text-white transition-colors">À propos</a>
+                        <a href="#services" class="block text-gray-400 hover:text-white transition-colors">Services</a>
+                        <a href="#avis" class="block text-gray-400 hover:text-white transition-colors">Avis</a>
+                        <a href="#contact" class="block text-gray-400 hover:text-white transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>07 50 01 17 56</p>
+                        <p>mon.statut.pro@gmail.com</p>
+                        <p>78 Avenue des Champs-Élysées, Paris</p>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>© 2025 Mon Statut Pro – Conseil en création et gestion d'entreprise</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Vanta.js globe
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0xffffff,
+            size: 1.00
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle with improved functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+        let menuOpen = false;
+        let mobileMenu = null;
+
+        // Create mobile menu on page load
+        function createMobileMenu() {
+            // Create a new mobile menu container if it doesn't exist yet
+            if (!document.getElementById('mobile-menu-container')) {
+                mobileMenu = document.createElement('div');
+                mobileMenu.id = 'mobile-menu-container';
+                mobileMenu.className = 'hidden flex-col absolute top-16 left-0 w-full bg-white p-4 space-y-4 shadow-lg z-50 border-t border-gray-100';
+                
+                // Add navigation links to mobile menu
+                const menuItems = [
+                    { href: '#accueil', text: 'Accueil' },
+                    { href: '#apropos', text: 'À propos' },
+                    { href: '#services', text: 'Services' },
+                    { href: '#avis', text: 'Avis' },
+                    { href: '#contact', text: 'Contact' }
+                ];
+                
+                menuItems.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.href;
+                    link.textContent = item.text;
+                    link.className = 'text-gray-700 hover:text-primary font-medium transition-colors text-center py-2 border-b border-gray-100';
+                    link.addEventListener('click', () => {
+                        toggleMenu(); // Close menu when link is clicked
+                    });
+                    mobileMenu.appendChild(link);
+                });
+                
+                // Add contact button to mobile menu
+                const contactButton = document.createElement('a');
+                contactButton.href = '#contact';
+                contactButton.id = 'mobile-contact-button';
+                contactButton.className = 'bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-secondary transition-colors text-center mt-2';
+                contactButton.textContent = 'Contactez-moi';
+                contactButton.addEventListener('click', () => {
+                    toggleMenu(); // Close menu when contact button is clicked
+                });
+                mobileMenu.appendChild(contactButton);
+                
+                // Add the mobile menu to the document
+                document.querySelector('nav').appendChild(mobileMenu);
+            } else {
+                mobileMenu = document.getElementById('mobile-menu-container');
+            }
+        }
+        
+        // Call this function when the page loads
+        createMobileMenu();
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            
+            // Update aria-expanded attribute for accessibility
+            mobileMenuButton.setAttribute('aria-expanded', menuOpen.toString());
+            
+            // Change icon based on menu state
+            if (menuOpen) {
+                feather.replace(menuIcon, { name: 'x' });
+                mobileMenu.classList.remove('hidden', 'mobile-menu-closed');
+                mobileMenu.classList.add('flex', 'mobile-menu-open');
+            } else {
+                feather.replace(menuIcon, { name: 'menu' });
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                
+                // Hide after animation completes
+                setTimeout(() => {
+                    if (!menuOpen) {
+                        mobileMenu.classList.remove('flex');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 280);
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (menuOpen) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu when clicking outside or on a link
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu-container');
+            // Close when clicking outside
+            if (menuOpen && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                toggleMenu();
+            }
+            
+            // Close when clicking on a mobile menu link
+            if (menuOpen && mobileMenu && mobileMenu.contains(e.target) && e.target.tagName === 'A') {
+                toggleMenu();
+            }
+        });
+
+        // Add active class to navigation links based on scroll position
+        function setActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100; // Offset for fixed header
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+
+                if (navLink && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('a[href^="#"]').forEach(link => {
+                        link.classList.remove('nav-link-active');
+                    });
+                    navLink.classList.add('nav-link-active');
+                }
+            });
+        }
+
+        // Apply mobile styles to nav links
+        function applyMobileStyles() {
+            if (window.innerWidth < 768) { // md breakpoint in Tailwind
+                navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+                    if (!link.id || link.id !== 'mobile-contact-button') {
+                        link.classList.add('mobile-nav-link');
+                    }
+                });
+            } else {
+                navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.classList.remove('mobile-nav-link');
+                });
+            }
+        }
+
+        // Call functions on load and scroll
+        window.addEventListener('load', () => {
+            setActiveNavLink();
+            applyMobileStyles();
+        });
+        window.addEventListener('scroll', setActiveNavLink);
+        window.addEventListener('resize', applyMobileStyles);
+
+        // Initialize Feather Icons
+        feather.replace();
+    </script>
+</body>
+</html>

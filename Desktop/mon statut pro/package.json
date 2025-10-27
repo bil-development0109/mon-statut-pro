@@ -1,0 +1,10 @@
+{
+  "name": "mon-statut-pro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site Mon Statut Pro avec fonctions Netlify pour avis",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@netlify/blobs": "^5.0.0"
+  }
+}

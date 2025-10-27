@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avis — Mon Statut Pro</title>
+    <meta name="description" content="Avis des utilisateurs de Mon Statut Pro. Partagez votre retour et lisez les expériences d’auto‑entrepreneurs et dirigeants." />
+    <link rel="canonical" href="https://monstatutpro.fr/avis.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Avis — Mon Statut Pro" />
+    <meta property="og:description" content="Lisez et publiez des avis sur Mon Statut Pro." />
+    <meta property="og:url" content="https://monstatutpro.fr/avis.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Avis — Mon Statut Pro" />
+    <meta name="twitter:description" content="Lisez et publiez des avis sur Mon Statut Pro." />
+    <link rel="icon" href="/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: '#3B82F6', secondary: '#1E40AF', accent: '#F59E0B' },
+            fontFamily: { 'montserrat': ['Montserrat', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <style>
+      .gradient-text { background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+      .hover-lift { transition: all 0.3s ease; }
+      .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script>
+      (function(){
+        var host = location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1') { console.log('GA disabled in local environment'); return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH';
+        s.onload = function(){
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-TYN3RWGDQH');
+        };
+        document.head.appendChild(s);
+      })();
+    </script>
+  </head>
+  <body class="font-montserrat bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+              <i data-feather="trending-up" class="text-white"></i>
+            </div>
+            <span class="text-xl font-bold gradient-text">Mon Statut Pro</span>
+          </div>
+          <div class="hidden md:flex space-x-8 nav-links">
+            <a href="index.html#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Accueil</a>
+            <a href="index.html#apropos" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">À propos</a>
+            <a href="index.html#services" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Services</a>
+            <a href="index.html#avis" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Avis</a>
+            <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Contact</a>
+          </div>
+          <a href="index.html#contact" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-secondary transition-colors hidden md:block">Contactez-moi</a>
+          <button class="md:hidden text-gray-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md p-1" aria-label="Menu de navigation" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="hamburger-icon"><i data-feather="menu" id="menu-icon"></i></div>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-28 pb-12 bg-gray-50">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Avis — Mon Statut Pro</h1>
+        <p class="text-gray-600 mt-3">Lisez les retours et publiez le vôtre</p>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <section class="mb-16">
+          <p id="loading" class="text-center text-gray-600 mb-6">Chargement des avis…</p>
+          <div id="list" class="grid md:grid-cols-3 gap-8"></div>
+        </section>
+        <section class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Publier un avis</h2>
+          <form id="review-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+              <input type="text" id="name" name="name" maxlength="120" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ex. Camille" />
+            </div>
+            <div>
+              <label for="review" class="block text-sm font-medium text-gray-700 mb-2">Votre avis</label>
+              <textarea id="review" name="review" rows="4" maxlength="2000" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Partagez votre expérience"></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors">Envoyer</button>
+            <p id="form-status" class="text-center text-sm text-gray-600"></p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center"><i data-feather="trending-up" class="w-4 h-4"></i></div>
+              <span class="text-xl font-bold">Mon Statut Pro</span>
+            </div>
+            <p class="text-gray-400">Expert en création et gestion d'entreprise depuis 2023</p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Navigation</h4>
+            <div class="space-y-2">
+              <a href="index.html#accueil" class="block text-gray-400 hover:text-white transition-colors">Accueil</a>
+              <a href="index.html#apropos" class="block text-gray-400 hover:text-white transition-colors">À propos</a>
+              <a href="index.html#services" class="block text-gray-400 hover:text-white transition-colors">Services</a>
+              <a href="index.html#avis" class="block text-gray-400 hover:text-white transition-colors">Avis</a>
+              <a href="mentions-legales.html" class="block text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <div class="space-y-2 text-gray-400">
+              <p>07 50 01 17 56</p>
+              <p>mon.statut.pro@gmail.com</p>
+              <p>78 Avenue des Champs-Élysées, Paris</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+          <p>© 2025 Mon Statut Pro – Conseil en création et gestion d'entreprise</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const listEl = document.getElementById('list');
+      const loadingEl = document.getElementById('loading');
+      const form = document.getElementById('review-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+
+      function fmtDate(iso) {
+        try {
+          const d = new Date(iso);
+          return d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+        } catch { return iso; }
+      }
+
+      function renderList(items) {
+        listEl.innerHTML = '';
+        if (!items || !items.length) {
+          listEl.innerHTML = '<p class="text-center text-gray-600">Aucun avis pour le moment.</p>';
+          return;
+        }
+        items.slice().reverse().forEach(({ name, review, date }) => {
+          const div = document.createElement('div');
+          div.className = 'bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover-lift';
+          div.innerHTML = `
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                <i data-feather="user" class="text-primary w-5 h-5"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-800">${(name || 'Anonyme')}</h3>
+            </div>
+            <time class="block text-gray-500 text-sm mb-3">${fmtDate(date)}</time>
+            <p class="text-gray-700">${(review || '').replace(/</g, '&lt;')}</p>
+          `;
+          listEl.appendChild(div);
+        });
+        feather.replace();
+      }
+
+      async function loadReviews() {
+        try {
+          loadingEl.textContent = 'Chargement des avis…';
+          const res = await fetch('/data/reviews.json', { headers: { 'Accept': 'application/json' } });
+          const data = await res.json();
+          renderList(Array.isArray(data) ? data : []);
+        } catch (e) {
+          listEl.innerHTML = '<p class="error">Erreur de chargement des avis.</p>';
+        } finally {
+          loadingEl.remove();
+        }
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = '';
+        submitBtn.disabled = true;
+        const name = document.getElementById('name').value.trim();
+        const review = document.getElementById('review').value.trim();
+        try {
+          const res = await fetch('/.netlify/functions/add-review', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, review })
+          });
+          const data = await res.json();
+          if (res.ok && data.ok) {
+            statusEl.textContent = 'Avis ajouté avec succès.';
+            statusEl.className = 'text-center text-sm text-green-700';
+            form.reset();
+            await loadReviews();
+          } else {
+            statusEl.textContent = (data && data.error) ? data.error : 'Erreur lors de l’envoi.';
+            statusEl.className = 'text-center text-sm text-red-700';
+          }
+        } catch (e) {
+          statusEl.textContent = 'Erreur réseau.';
+          statusEl.className = 'text-center text-sm text-red-700';
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+
+      loadReviews();
+      feather.replace();
+    </script>
+  </body>
+</html>

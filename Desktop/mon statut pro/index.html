@@ -48,6 +48,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -78,6 +79,7 @@
         .gradient-text {
             background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .hover-lift {
@@ -137,12 +139,21 @@
         }
     </style>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TYN3RWGDQH');
+    (function(){
+      var host = location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') { console.log('GA disabled in local environment'); return; }
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH';
+      s.onload = function(){
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TYN3RWGDQH');
+      };
+      document.head.appendChild(s);
+    })();
   </script>
 </head>
 <body class="font-montserrat bg-white">
@@ -328,76 +339,44 @@
     <section id="avis" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">Ce que disent mes clients</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Avis 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
-                    <div class="flex text-accent mb-4">
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <p class="text-gray-600 mb-4 italic">"Un accompagnement clair et efficace pour lancer ma startup en seulement 3 mois ! L'expertise et le soutien ont été déterminants pour mon succès."</p>
-                    <p class="font-semibold text-gray-800">Yasmine D., entrepreneur</p>
-                </div>
 
-                <!-- Avis 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
-                    <div class="flex text-accent mb-4">
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <p class="text-gray-600 mb-4 italic">"Conseils extrêmement pratiques pour optimiser ma gestion financière. Une vraie valeur ajoutée pour mon entreprise !"</p>
-                    <p class="font-semibold text-gray-800">Mohammed B., gérante</p>
-                </div>
+            <!-- Liste dynamique des avis -->
+            <p id="reviews-loading" class="text-center text-gray-600 mb-6">Chargement des avis…</p>
+            <div id="reviews-list" class="grid md:grid-cols-3 gap-8"></div>
 
-                <!-- Avis 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
-                    <div class="flex text-accent mb-4">
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                    </div>
-                    <p class="text-gray-600 mb-4 italic">"Mon business plan a été un véritable succès grâce à Mon Statut Pro. L'accompagnement personnalisé a fait toute la différence."</p>
-                    <p class="font-semibold text-gray-800">YACINE S., porteur de projet</p>
-                </div>
+            <!-- Lien vers la page de tous les avis -->
+            <div class="text-center mt-10">
+                <a href="avis.html" class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-colors hover-lift">
+                    Voir tous les avis
+                </a>
             </div>
 
-            <!-- Formulaire Avis -->
+            <!-- Formulaire Avis (serverless) -->
             <div class="mt-16 max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Laissez votre avis</h3>
-                <form name="avis" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" class="space-y-6">
-                    <input type="hidden" name="form-name" value="avis" />
-                    <p class="hidden">
-                        <label>Ne pas remplir si vous êtes humain: <input name="bot-field" /></label>
-                    </p>
+                <form id="review-form" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <label for="review-name" class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                            <input type="text" id="review-name" name="name" maxlength="120" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <label for="review-email" class="block text-sm font-medium text-gray-700 mb-2">Email (optionnel)</label>
+                            <input type="email" id="review-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                         </div>
                     </div>
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Votre avis</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                        <label for="review-message" class="block text-sm font-medium text-gray-700 mb-2">Votre avis</label>
+                            <textarea id="review-message" name="review" rows="4" maxlength="2000" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors">
+                    <button type="submit" id="review-submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-secondary transition-colors">
                             Envoyer mon avis
                         </button>
-                    </form>
-                </div>
+                    <p id="review-status" class="text-center text-sm text-gray-600 mt-2"></p>
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Contact Section -->
         <section id="contact" class="py-20">
@@ -419,6 +398,37 @@
                             <div>
                                 <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
                                 <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Objet de votre demande</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="subject" value="rendez-vous" class="text-primary" checked>
+                                    <span>Prendre un rendez‑vous téléphonique</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="subject" value="devis" class="text-primary">
+                                    <span>Demande de devis</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="subject" value="question" class="text-primary">
+                                    <span>Question sur le statut</span>
+                                </label>
+                                <label class="flex items-center space-x-2">
+                                    <input type="radio" name="subject" value="autre" class="text-primary">
+                                    <span>Autre</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="rdv-fields" class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="rdv-date" class="block text-sm font-medium text-gray-700 mb-2">Date souhaitée</label>
+                                <input type="date" id="rdv-date" name="rdv_date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="rdv-time" class="block text-sm font-medium text-gray-700 mb-2">Créneau horaire</label>
+                                <input type="time" id="rdv-time" name="rdv_time" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                             </div>
                         </div>
                         <div>
@@ -714,8 +724,119 @@
         window.addEventListener('scroll', setActiveNavLink);
         window.addEventListener('resize', applyMobileStyles);
 
+        // === Avis dynamiques: chargement et envoi ===
+        const reviewsList = document.getElementById('reviews-list');
+        const reviewsLoading = document.getElementById('reviews-loading');
+        const reviewForm = document.getElementById('review-form');
+        const reviewStatus = document.getElementById('review-status');
+        const reviewSubmit = document.getElementById('review-submit');
+
+        function renderStars() {
+            return '<i data-feather="star" class="w-5 h-5 fill-current"></i>'.repeat(5);
+        }
+
+        function fmtDateFR(iso) {
+            try {
+                const d = new Date(iso);
+                return d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+            } catch { return iso; }
+        }
+
+        function renderReviews(items) {
+            if (!reviewsList) return;
+            reviewsList.innerHTML = '';
+            if (!Array.isArray(items) || !items.length) {
+                reviewsList.innerHTML = '<p class="text-center text-gray-600">Aucun avis pour le moment.</p>';
+                return;
+            }
+            items.slice().reverse().forEach(({ name, review, date }) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift';
+                card.innerHTML = `
+                    <div class=\"flex text-accent mb-4\">${renderStars()}</div>
+                    <p class=\"text-gray-600 mb-4 italic\">${(review || '').replace(/</g, '&lt;')}</p>
+                    <p class=\"font-semibold text-gray-800\">${name || 'Anonyme'} • <span class=\"text-gray-500\">${fmtDateFR(date)}</span></p>
+                `;
+                reviewsList.appendChild(card);
+            });
+            // Réappliquer les icônes Feather pour les étoiles
+            feather.replace({ 'stroke-width': 1.5 });
+        }
+
+        async function loadReviews() {
+            try {
+                if (reviewsLoading) reviewsLoading.textContent = 'Chargement des avis…';
+                const res = await fetch('/data/reviews.json', { headers: { 'Accept': 'application/json' } });
+                const data = await res.json();
+                renderReviews(Array.isArray(data) ? data : []);
+            } catch (e) {
+                if (reviewsList) reviewsList.innerHTML = '<p class="text-center text-red-600">Erreur de chargement des avis.</p>';
+            } finally {
+                if (reviewsLoading) reviewsLoading.remove();
+            }
+        }
+
+        if (reviewForm) {
+            reviewForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (reviewStatus) reviewStatus.textContent = '';
+                if (reviewSubmit) reviewSubmit.disabled = true;
+                const name = document.getElementById('review-name').value.trim();
+                const review = document.getElementById('review-message').value.trim();
+                try {
+                    const res = await fetch('/.netlify/functions/add-review', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, review })
+                    });
+                    const data = await res.json();
+                    if (res.ok && data.ok) {
+                        if (reviewStatus) {
+                            reviewStatus.textContent = 'Avis ajouté avec succès.';
+                            reviewStatus.className = 'text-center text-sm text-green-700';
+                        }
+                        reviewForm.reset();
+                        await loadReviews();
+                    } else {
+                        if (reviewStatus) {
+                            reviewStatus.textContent = (data && data.error) ? data.error : 'Erreur lors de l’envoi.';
+                            reviewStatus.className = 'text-center text-sm text-red-700';
+                        }
+                    }
+                } catch (e) {
+                    if (reviewStatus) {
+                        reviewStatus.textContent = 'Erreur réseau.';
+                        reviewStatus.className = 'text-center text-sm text-red-700';
+                    }
+                } finally {
+                    if (reviewSubmit) reviewSubmit.disabled = false;
+                }
+            });
+        }
+
+        // Charger les avis à l’ouverture de la page
+        loadReviews();
+
         // Initialize Feather Icons
         feather.replace();
+
+        // Afficher/Masquer les champs de rendez-vous selon l'objet
+        const subjectRadios = document.querySelectorAll('input[name="subject"]');
+        const rdvFields = document.getElementById('rdv-fields');
+        function updateRdvVisibility() {
+            const selected = document.querySelector('input[name="subject"]:checked');
+            if (!rdvFields) return;
+            const show = (selected && selected.value === 'rendez-vous');
+            rdvFields.style.display = show ? '' : 'none';
+            if (!show) {
+                const d = document.getElementById('rdv-date');
+                const t = document.getElementById('rdv-time');
+                if (d) d.value = '';
+                if (t) t.value = '';
+            }
+        }
+        subjectRadios.forEach(r => r.addEventListener('change', updateRdvVisibility));
+        updateRdvVisibility();
     </script>
 </body>
 </html>

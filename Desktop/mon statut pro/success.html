@@ -12,6 +12,7 @@
     <style>
         .gradient-text {
             background: linear-gradient(90deg, #4F46E5, #06B6D4);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -24,12 +25,21 @@
         }
     </style>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TYN3RWGDQH');
+    (function(){
+      var host = location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') { console.log('GA disabled in local environment'); return; }
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH';
+      s.onload = function(){
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TYN3RWGDQH');
+      };
+      document.head.appendChild(s);
+    })();
   </script>
 </head>
 <body class="bg-gray-50">

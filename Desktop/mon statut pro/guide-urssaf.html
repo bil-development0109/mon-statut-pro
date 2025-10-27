@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -40,7 +39,9 @@
         }
     </script>
     <style>
-        .vanta-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .hero-bg { 
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fd 100%);
+        }
         .gradient-text { background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hover-lift { transition: all 0.3s ease; }
         .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
@@ -52,12 +53,21 @@
         html { scroll-behavior: smooth; }
     </style>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TYN3RWGDQH');
+    (function(){
+      var host = location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') { console.log('GA disabled in local environment'); return; }
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH';
+      s.onload = function(){
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TYN3RWGDQH');
+      };
+      document.head.appendChild(s);
+    })();
   </script>
 </head>
 <body class="font-montserrat bg-white">
@@ -77,6 +87,7 @@
                     <a href="index.html#apropos" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">À propos</a>
                     <a href="index.html#services" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Services</a>
                     <a href="index.html#avis" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Avis</a>
+                    <a href="avis.html" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Tous les avis</a>
                     <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Contact</a>
                 </div>
 
@@ -94,8 +105,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div id="vanta-bg"></div>
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg">
         <div class="hero-content container mx-auto px-6 text-center">
             <div class="animate__animated animate__fadeInUp">
                 <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
@@ -247,21 +257,6 @@
     </footer>
 
     <script>
-        // Globe Vanta aligné sur l’accueil
-        VANTA.GLOBE({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x3b82f6,
-            backgroundColor: 0xffffff,
-            size: 1.00
-        });
-
         // Défilement fluide pour les ancres internes
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

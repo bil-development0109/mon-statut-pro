@@ -1,6 +1,15 @@
 [build]
   publish = "./"
 
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/data/reviews.json"
+  to = "/.netlify/functions/reviews-json"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

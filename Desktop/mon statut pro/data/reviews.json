@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Alice",
+    "review": "Service réactif et très clair pour mon statut d’auto‑entrepreneur.",
+    "date": "2025-09-01T12:00:00.000Z"
+  },
+  {
+    "name": "Marc",
+    "review": "Très bon conseil pour choisir entre SASU et micro‑entreprise.",
+    "date": "2025-08-05T09:30:00.000Z"
+  },
+  {
+    "name": "Nadia L.",
+    "review": "Accompagnement rassurant et efficace, j’ai gagné du temps sur mes démarches.",
+    "date": "2025-07-27T09:00:00.000Z"
+  },
+  {
+    "name": "Karim B.",
+    "review": "Explications claires, j’ai enfin compris le meilleur statut pour mon activité.",
+    "date": "2025-10-27T09:15:00.000Z"
+  },
+  {
+    "name": "Sophie M.",
+    "review": "Suivi personnalisé et conseils pertinents, je recommande sans hésiter.",
+    "date": "2025-10-27T09:30:00.000Z"
+  }
+]

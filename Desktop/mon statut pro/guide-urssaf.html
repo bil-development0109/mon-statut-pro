@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide officiel URSSAF - Mon Statut Pro</title>
+    <!-- SEO additions -->
+    <meta name="description" content="Guides officiels URSSAF pour auto‑entrepreneurs et micro‑entreprises : cotisations, démarches, modèles et ressources utiles.">
+    <link rel="canonical" href="https://monstatutpro.fr/guide-urssaf.html">
+    <meta name="author" content="Mon Statut Pro">
+    <meta name="theme-color" content="#3B82F6">
+    <meta property="og:title" content="Guide officiel URSSAF - Mon Statut Pro">
+    <meta property="og:description" content="Guides URSSAF: auto‑entrepreneurs et micro‑entreprises. Cotisations, démarches et modèles officiels.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://monstatutpro.fr/guide-urssaf.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Guide officiel URSSAF - Mon Statut Pro">
+    <meta name="twitter:description" content="URSSAF: ressources pour auto‑entrepreneurs et micro‑entreprises. Démarches, cotisations, modèles.">
+    <!-- End SEO additions -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#F59E0B'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .vanta-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .gradient-text { background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hover-lift { transition: all 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+        .hamburger-icon { position: relative; width: 24px; height: 24px; transition: all 0.3s ease; }
+        .mobile-menu-open { animation: fadeIn 0.3s ease forwards; transform-origin: top; }
+        .mobile-menu-closed { animation: fadeOut 0.3s ease forwards; transform-origin: top; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
+        html { scroll-behavior: smooth; }
+    </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TYN3RWGDQH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TYN3RWGDQH');
+  </script>
+</head>
+<body class="font-montserrat bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                        <i data-feather="trending-up" class="text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">Mon Statut Pro</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 nav-links">
+                    <a href="index.html#accueil" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Accueil</a>
+                    <a href="index.html#apropos" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">À propos</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Services</a>
+                    <a href="index.html#avis" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Avis</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-primary font-medium transition-colors text-center">Contact</a>
+                </div>
+
+                <a href="index.html#contact" class="bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-secondary transition-colors hidden md:block">
+                    Contactez-moi
+                </a>
+
+                <button class="md:hidden text-gray-700 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md p-1" aria-label="Menu de navigation" id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu">
+                    <div class="hamburger-icon">
+                        <i data-feather="menu" id="menu-icon"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div id="vanta-bg"></div>
+        <div class="hero-content container mx-auto px-6 text-center">
+            <div class="animate__animated animate__fadeInUp">
+                <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i data-feather="file-text" class="text-primary w-12 h-12"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+                    Guide officiel <span class="gradient-text">URSSAF</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Accédez à toutes les ressources officielles URSSAF pour les auto-entrepreneurs
+                </p>
+                <a href="#guides" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-secondary transition-all duration-300 hover-lift">
+                    <i data-feather="download" class="w-5 h-5 mr-3"></i>
+                    Consulter les guides
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guides Section -->
+    <section id="guides" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Documentation officielle URSSAF</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tous les guides et documents essentiels pour bien comprendre et gérer votre statut d'auto-entrepreneur.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Guide 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="presentation" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Diaporama Auto-entrepreneur</h3>
+                    <p class="text-gray-600 mb-6">Présentation complète du statut d'auto-entrepreneur avec toutes les informations essentielles.</p>
+                    <a href="https://www.urssaf.fr/files/live/sites/urssaffr/files/autres/Diaporama_Auto-entrepreneur.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="map" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Auto-entrepreneur DROM</h3>
+                    <p class="text-gray-600 mb-6">Guide spécifique pour les auto-entrepreneurs dans les Départements et Régions d'Outre-Mer.</p>
+                    <a href="https://www.urssaf.fr/files/live/sites/urssaffr/files/autres/Diaporama_Auto-entrepreneur-DROM.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-primary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="book-open" class="text-accent w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">URSSAF et Vous - Guide AE</h3>
+                    <p class="text-gray-600 mb-6">Guide complet "URSSAF et Vous" spécialement conçu pour les auto-entrepreneurs.</p>
+                    <a href="https://www.autoentrepreneur.urssaf.fr/portail/files/Guides/6661-Urssaf_et_Vous_AE_VF.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-primary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="life-buoy" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Aide d'urgence CPSTI</h3>
+                    <p class="text-gray-600 mb-6">Guide sur l'aide d'urgence URSSAF pour les travailleurs indépendants en difficulté.</p>
+                    <a href="https://www.autoentrepreneur.urssaf.fr/portail/files/Guides/Urssaf-Aide-d%e2%80%99urgence-CPSTI%20.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="monitor" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Services en ligne</h3>
+                    <p class="text-gray-600 mb-6">Présentation des services en ligne URSSAF disponibles pour les auto-entrepreneurs.</p>
+                    <a href="https://www.urssaf.fr/files/live/sites/urssaffr/files/autres/Diaporama_Auto-entrepreneur-Services-en-ligne.pdf" target="_blank" class="inline-flex items-center px-6 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-primary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+                <!-- Guide 6: Modèle de facture URSSAF -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover-lift">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="file" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Modèle de facture (URSSAF)</h3>
+                    <p class="text-gray-600 mb-6">Modèle officiel de facture pour auto-entrepreneurs.</p>
+                    <a href="https://www.autoentrepreneur.urssaf.fr/portail/files/DocsUtiles/Autres%20docs/urssaf-modele-de-facture-pour-le" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-secondary transition-colors">
+                        <i data-feather="external-link" class="w-4 h-4 mr-2"></i>
+                        Télécharger PDF
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <i data-feather="trending-up" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-xl font-bold">Mon Statut Pro</span>
+                    </div>
+                    <p class="text-gray-400">Expert en création et gestion d'entreprise depuis 2023</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Navigation</h4>
+                    <div class="space-y-2">
+                        <a href="index.html#accueil" class="block text-gray-400 hover:text-white transition-colors">Accueil</a>
+                        <a href="index.html#apropos" class="block text-gray-400 hover:text-white transition-colors">À propos</a>
+                        <a href="index.html#services" class="block text-gray-400 hover:text-white transition-colors">Services</a>
+                        <a href="index.html#avis" class="block text-gray-400 hover:text-white transition-colors">Avis</a>
+                        <a href="index.html#contact" class="block text-gray-400 hover:text-white transition-colors">Contact</a>
+                        <a href="mentions-legales.html" class="block text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>07 50 01 17 56</p>
+                        <p>mon.statut.pro@gmail.com</p>
+                        <p>78 Avenue des Champs-Élysées, Paris</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Mon Statut Pro – Conseil en création et gestion d'entreprise</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Globe Vanta aligné sur l’accueil
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0xffffff,
+            size: 1.00
+        });
+
+        // Défilement fluide pour les ancres internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Menu mobile (création du menu et toggle)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+        let menuOpen = false;
+        let mobileMenu = null;
+
+        function createMobileMenu() {
+            if (!document.getElementById('mobile-menu-container')) {
+                mobileMenu = document.createElement('div');
+                mobileMenu.id = 'mobile-menu-container';
+                mobileMenu.className = 'hidden flex-col absolute top-16 left-0 w-full bg-white p-4 space-y-4 shadow-lg z-50 border-t border-gray-100';
+
+                const menuItems = [
+                    { href: 'index.html#accueil', text: 'Accueil' },
+                    { href: 'index.html#apropos', text: 'À propos' },
+                    { href: 'index.html#services', text: 'Services' },
+                    { href: 'index.html#avis', text: 'Avis' },
+                    { href: 'index.html#contact', text: 'Contact' }
+                ];
+
+                menuItems.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.href;
+                    link.textContent = item.text;
+                    link.className = 'text-gray-700 hover:text-primary font-medium transition-colors text-center py-2 border-b border-gray-100';
+                    link.addEventListener('click', () => { toggleMenu(); });
+                    mobileMenu.appendChild(link);
+                });
+
+                const contactButton = document.createElement('a');
+                contactButton.href = 'index.html#contact';
+                contactButton.id = 'mobile-contact-button';
+                contactButton.className = 'bg-primary text-white px-6 py-2 rounded-full font-medium hover:bg-secondary transition-colors text-center mt-2';
+                contactButton.textContent = 'Contactez-moi';
+                contactButton.addEventListener('click', () => { toggleMenu(); });
+                mobileMenu.appendChild(contactButton);
+
+                document.querySelector('nav').appendChild(mobileMenu);
+            } else {
+                mobileMenu = document.getElementById('mobile-menu-container');
+            }
+        }
+
+        createMobileMenu();
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            mobileMenuButton.setAttribute('aria-expanded', menuOpen.toString());
+            if (menuOpen) {
+                feather.replace(menuIcon, { name: 'x' });
+                mobileMenu.classList.remove('hidden', 'mobile-menu-closed');
+                mobileMenu.classList.add('flex', 'mobile-menu-open');
+            } else {
+                feather.replace(menuIcon, { name: 'menu' });
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-closed');
+                setTimeout(() => {
+                    if (!menuOpen) {
+                        mobileMenu.classList.remove('flex');
+                        mobileMenu.classList.add('hidden');
+                    }
+                }, 280);
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => { if (menuOpen) toggleMenu(); });
+        });
+
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu-container');
+            if (menuOpen && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+    </script>
+</body>
+</html>
